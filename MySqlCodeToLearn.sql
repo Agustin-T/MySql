@@ -88,6 +88,17 @@ from admin2@localhost;
 
 -- eliminar usuario
 drop user admin2@localhost;
+-------------------------------------------------------------------------
+-- crear  roles
+create role 'rl_lectura', 'rl_escritura';
+
+-- asignamos privilegios a los roles
+grant select on tienda.* to 'rl_lectura';
+grant insert, update, delete on tienda.* to 'rl_escritura';
+
+-- verificamos mostrando los privilegios de los roles
+show grants for 'rl_escritura';
+show grants for 'rl_lectura';
 
 -------------------------------------------------------------------
 -- manipulacion de datos
