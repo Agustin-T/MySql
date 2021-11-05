@@ -57,36 +57,73 @@ ADD CONSTRAINT `FK_PRODUCTO_CATEGORIA`
 
 
 -- crar y eliminar indices en mysql
+-- crear
 ALTER TABLE `tienda`.`producto` 
 ADD INDEX `IX_PRODUCTO_NOMBRE` (`nombre` ASC) VISIBLE;
+;
+-- eliminar
+ALTER TABLE `tienda`.`producto` 
+DROP INDEX `IX_PRODUCTO_NOMBRE` ;
 ;
 -------------------------------------------------------------------
 -- getion de ususarios
 -------------------------------------------------------------------
+-- crear usuario
+use mysql;
+select * from user;
+-- crear usuario con nombre@tipo con contraseña
+create user admin2@localhost identified by '123abc';
+
+-- otorgar permisos
+grant select, insert, update, delete on tienda.* to admin2@localhost;
+
+-- mostrar los permisos otorgados
+show grants for admin2@localhost;
+
+-- remover el privilegio de cargar y eliminar en la tabla tiendad.todo(*) de nombre@dirrecion
+
+revoke update, delete
+on tienda.*
+from admin2@localhost;
+
+-- eliminar usuario
+drop user admin2@localhost;
 
 -------------------------------------------------------------------
 -- manipulacion de datos
 -------------------------------------------------------------------
 
+
+
 -------------------------------------------------------------------
 -- operadores
 -------------------------------------------------------------------
+
+
 
 -------------------------------------------------------------------
 -- funciones de decha y hora
 -------------------------------------------------------------------
 
+
+
 -------------------------------------------------------------------
 -- otras funciones
 -------------------------------------------------------------------
+
+
 
 -------------------------------------------------------------------
 -- Agrupacion, ordenamiento y limites
 -------------------------------------------------------------------
 
+
+
 -------------------------------------------------------------------
 -- uniones de tablas
 -------------------------------------------------------------------
+
+
 
 -------------------------------------------------------------------
 -- importar y exportar bases de datos
