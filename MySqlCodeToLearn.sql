@@ -100,6 +100,28 @@ grant insert, update, delete on tienda.* to 'rl_escritura';
 show grants for 'rl_escritura';
 show grants for 'rl_lectura';
 
+-------------------------------------------------------------------------
+-- asignar roles a admin1@'%'
+-- % significa cualquier direccion IP 
+grant 'rl_lectura', 'rl_escritura' to admin1@'%';
+show grants for admin1@'%';
+
+-- eliminar rol
+revoke 'rl_escritura' from admin1@'%';
+
+-- eliminar un privilegio desntro del rol
+revoke delete on tienda.* from 'rl_escritura';
+show grants for 'rl_escritura';
+
+-- eliminar rol
+drop role 'rl_escritura';
+
+
+
+-------------------------------------------------------------------------
+-- into cual es la tab-- la de hacer la inserrcion de valores de 
+-- no incertamos nada en el ID porque es acumulador acendente
+insert into categoria (nombre, descripcion) values ('Cereales', 'Productos como maiz, trigo avena, arroz, etc');
 -------------------------------------------------------------------
 -- manipulacion de datos
 -------------------------------------------------------------------
