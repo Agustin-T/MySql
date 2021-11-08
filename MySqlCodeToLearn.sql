@@ -150,7 +150,19 @@ select * from producto where IdCategoria = 5;
 -------------------------------------------------------------------
 -- operadores
 -------------------------------------------------------------------
+-- update
+-- cambiar un elemento
+update empleado
+SET email = 'alicecosta@ejemplo.com'
+where IdEmpleado = 3;
 
+
+--cambiar varios elementos
+update empleado 
+set
+apellido = 'morales', 
+email = 'alicemorales@ejrmplo.com'
+where IdEmpelado = 3;
 
 
 -------------------------------------------------------------------
