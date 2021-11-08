@@ -141,6 +141,13 @@ select nombre, precioUnitario from producto;-- 2 columnas de producto
 select nombre as 'Nombre de producto' from producto;-- cambiar nombre de a nombre de producto
 
 -------------------------------------------------------------------
+--WHERE
+select * from  empleado where salario > 500;
+select * from empleado where idEmpleado = 2;
+select * from cliente where pais = 'Canada';
+select * from producto where IdCategoria = 5;
+
+-------------------------------------------------------------------
 -- operadores
 -------------------------------------------------------------------
 
