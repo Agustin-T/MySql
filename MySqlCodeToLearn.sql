@@ -163,7 +163,12 @@ set
 apellido = 'morales', 
 email = 'alicemorales@ejrmplo.com'
 where IdEmpelado = 3;
+-------------------------------------------------------------------
+-- delete
 
+delete from empleado where idEmpleado = 5;
+
+--tener cuidado, puedes eliminar tanto un registro como una tabla si no le pones el 'where'
 
 -------------------------------------------------------------------
 -- funciones de decha y hora
