@@ -146,10 +146,8 @@ select * from  empleado where salario > 500;
 select * from empleado where idEmpleado = 2;
 select * from cliente where pais = 'Canada';
 select * from producto where IdCategoria = 5;
+-------------------------------------------------------------------
 
--------------------------------------------------------------------
--- operadores
--------------------------------------------------------------------
 -- update
 -- cambiar un elemento
 update empleado
@@ -169,6 +167,11 @@ where IdEmpelado = 3;
 delete from empleado where idEmpleado = 5;
 
 --tener cuidado, puedes eliminar tanto un registro como una tabla si no le pones el 'where'
+
+
+-------------------------------------------------------------------
+-- operadores
+-------------------------------------------------------------------
 
 -------------------------------------------------------------------
 -- funciones de decha y hora
