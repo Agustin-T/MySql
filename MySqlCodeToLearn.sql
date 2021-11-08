@@ -172,6 +172,35 @@ delete from empleado where idEmpleado = 5;
 -------------------------------------------------------------------
 -- operadores
 -------------------------------------------------------------------
+-- and, &&
+select idProducto, nombre
+from producto
+where precioUnitario < 2.30 and idCategoria = 1;
+
+select idProducto, nombre
+from producto
+where precioUnitario < 2.30 && idCategoria = 2;
+
+--or, ||
+select idProducto,nombre
+from producto
+where precioUnitario < 2.30 || idCategoria = 2
+
+--not !=
+select * 
+from producto
+where idCateforia != 2;
+
+--null
+select *
+from producto
+where idCategoria is not null
+
+--xor
+select* 
+where producto
+where precioUnitario < 2.30 xor idCategoria = 2
+
 
 -------------------------------------------------------------------
 -- funciones de decha y hora
