@@ -122,11 +122,23 @@ drop role 'rl_escritura';
 -- into cual es la tab-- la de hacer la inserrcion de valores de 
 -- no incertamos nada en el ID porque es acumulador acendente
 insert into categoria (nombre, descripcion) values ('Cereales', 'Productos como maiz, trigo avena, arroz, etc');
+-------------------------------------------------------------------------
+
+
 -------------------------------------------------------------------
 -- manipulacion de datos
 -------------------------------------------------------------------
+-- INSERT
+-- into dice en que tabla
+insert into categoria(nombre, descripcion) values('cereales', 'Productos como mais, trigo, arroz, etc')
 
-
+-------------------------------------------------------------------
+-- SELECT
+select 5 +2;
+select 5 + 5 from dual;
+select * from producto; -- todas las columnas de tabla producto
+select nombre, precioUnitario from producto;-- 2 columnas de producto
+select nombre as 'Nombre de producto' from producto;-- cambiar nombre de a nombre de producto
 
 -------------------------------------------------------------------
 -- operadores
