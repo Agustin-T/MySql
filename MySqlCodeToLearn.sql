@@ -297,28 +297,131 @@ select extract(day from now())as dia;
 
 select extract(month from now()) as mes;
 
-select nombre, date_format(sechaNacimiento, '%a, %b %Y') as 'Fecha de nacimiento'-- date_format(fecha, string)
+select nombre, date_format(fechaNacimiento, '%a, %b %Y') as 'Fecha de nacimiento'-- date_format(fecha, string)
 where empleados
 
 
 -------------------------------------------------------------------
 -- otras funciones
 -------------------------------------------------------------------
+-- funciones matematicas
+
+
+
+
+
+
+-------------------------------------------------------------------
+-- concatenar, insertar y medir longitud de una cadena
+
+
+
+
+-------------------------------------------------------------------
+--remplazar, repetir y medir la longitud de una cadena
+
+
+
+
+-------------------------------------------------------------------
+--formato de cadenas de caracteres 
+
+
+
+
+-------------------------------------------------------------------
+-- conversion de tipos de tados
+
+
+
+
+-------------------------------------------------------------------
+-- funciones en encriptacion
+
+
+
+
+-------------------------------------------------------------------
+-- funciones de informacion
+
+
 
 
 
 -------------------------------------------------------------------
 -- Agrupacion, ordenamiento y limites
 -------------------------------------------------------------------
+-- suma y conteo de valores
+
+
+
+-------------------------------------------------------------------
+-- promedio, maximos y minimos
+
+
+
+-------------------------------------------------------------------
+-- agrupando datos con la clausula Group GROUP by
+
+
+
+
+-------------------------------------------------------------------
+--opciones para el agrupamineto
+
+
+
+
+-------------------------------------------------------------------
+-- ordenamiento de datos por medio de ORDER BY
+
+
+
+-------------------------------------------------------------------
+-- limitar el número de filas con LIMIT y OFFSET
+
 
 
 
 -------------------------------------------------------------------
 -- uniones de tablas
 -------------------------------------------------------------------
+-- union de tablas
+
+-------------------------------------------------------------------
+-- vinculo de tablas por medio de LEFT JOIN
+
+
+-------------------------------------------------------------------
+--unio de tablas con la sentencia RIGHT JOIN 
+
+
+
+-------------------------------------------------------------------
+--relacion de tablas con el mismo nombre de columnas
+
+
+
+-------------------------------------------------------------------
+-- opciones de ON y USING en la union de tablas
+
+
+
 
 
 
 -------------------------------------------------------------------
 -- importar y exportar bases de datos
 -------------------------------------------------------------------
+-- respaldos utilizando mysqldump
+
+
+
+
+-------------------------------------------------------------------
+-- respaldo utilizando export mysql
+
+
+
+-------------------------------------------------------------------
+--restaurar la base de datos 
