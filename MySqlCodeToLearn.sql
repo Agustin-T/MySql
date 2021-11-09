@@ -261,6 +261,44 @@ from detalle_factura;
 -- funciones de decha y hora
 -------------------------------------------------------------------
 
+select curdate();
+
+select now();
+
+select localtime();
+
+select localtimestamp();
+
+select str_to_date('09 Agu, 2019', '%d %M, %Y');
+
+
+-------------------------------------------------------------------
+select date('2019-09-07 23:21:35') as fecha;
+
+select now();
+
+select date(now()) as fecha;
+
+-- diferencia de fechas
+
+select datedff('2022-08-06', '2021-08-06'); -- retorna la diferencia de los calores ingresados
+
+select nombre, floor(datediff(now(), fechaNacimiento)/ 365) as años -- flor() retorna la parte entera
+from empleado;
+
+-------------------------------------------------------------------
+select now();
+
+select date_add(now(), interval -10 year) as fecha; -- date_add() retorna 
+
+select extract(year from now()) as año; -- extract() estrae algun valor
+
+select extract(day from now())as dia;
+
+select extract(month from now()) as mes;
+
+select nombre, date_format(sechaNacimiento, '%a, %b %Y') as 'Fecha de nacimiento'-- date_format(fecha, string)
+where empleados
 
 
 -------------------------------------------------------------------
