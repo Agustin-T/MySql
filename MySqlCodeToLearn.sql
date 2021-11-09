@@ -201,6 +201,61 @@ select*
 where producto
 where precioUnitario < 2.30 xor idCategoria = 2
 
+-------------------------------------------------------------------
+-- rango
+select * from empleado
+where fechaIngreso between '2018-12-3' and '2018-01-31'
+
+-------------------------------------------------------------------
+-- multiples valores
+
+
+select * from factura 
+where idFactura = 1 or
+idFactura = 3 or 
+idFactura = 5 or
+idFactura = 7;
+
+select * from factura
+where idFactura in(1,3,5,7);
+
+select * from factura 
+where idFactura != 1 and
+idFactura != 3 and 
+idFactura != 5 and
+idFactura = 7;
+
+select * from factura
+where idFactura not in(1,3,5,7);
+-------------------------------------------------------------------
+-- valores nulos 
+
+select * from cliente
+where telefono is null;
+
+
+select * from cliente
+where isnull(telefono)
+
+-------------------------------------------------------------------
+--  busqueda de patrones
+
+select * from producto
+where nombre like 'avena';
+
+select * from producto
+where nombre like 'acena_';-- el guin bajo 'avena_'representa un espacio
+
+select * from producto
+where nombre like '%A%e%a';-- cualquier palabra que tenga A#e#a (Avena)
+
+select * from producto
+where nombre like 'a%'; -- cualquier producto que compieze con a
+-------------------------------------------------------------------
+-- operadores aritmeticos
+select idProducto, 
+(precioUnitario * cantidad) + (presioUnitario * cantidad * 0.10) as 'Precio con impuesto' 
+from detalle_factura;
 
 -------------------------------------------------------------------
 -- funciones de decha y hora
