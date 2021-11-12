@@ -306,7 +306,23 @@ where empleados
 -------------------------------------------------------------------
 -- funciones matematicas
 
+select abs(6);-- retorna el valor absoluto
 
+select cell(8.5); -- redonder hacia arriba
+
+select floor(9.95);-- redondear si ndecimales
+
+select mod(10,5);
+
+select pi();
+
+select power(3,2); -- etorna x elevado a la y
+
+select rand(); -- retorna valor aleatorio
+
+select round(6.5);-- redondea hacia arriba
+
+select truncate(5.422, 2); -- retorna el valor x con y decimales
 
 
 
