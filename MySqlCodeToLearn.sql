@@ -330,7 +330,19 @@ select truncate(5.422, 2); -- retorna el valor x con y decimales
 -------------------------------------------------------------------
 -- concatenar, insertar y medir longitud de una cadena
 
+-- concatenar
+select concat(nombre, ' ', apellido) as nombre from empleado; -- sin espacio concatena nombre y apellido juntos
 
+select concat_ws(' ', nombre, apellido) as nombre from empleado;
+
+-- retonna el numero de indice que es igual a 'N' en variable 'nombre'
+select instr(nombre, 'N') as posicion
+from producto
+where idProducto = 1;
+
+-- retorna el ancho de variable 'nombre'
+select nombre, lenght(nombre) as longitud
+from producto;
 
 
 -------------------------------------------------------------------
