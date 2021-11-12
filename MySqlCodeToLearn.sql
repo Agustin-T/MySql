@@ -348,31 +348,98 @@ from producto;
 -------------------------------------------------------------------
 --remplazar, repetir y medir la longitud de una cadena
 
+-- cambiar valor jugo por extracto, en la tabla producto donde columna id = 11
+select replace(nombre, 'Jugo', 'Extracto') as nombre
+from producto
+where idproducto = 11;
 
+
+select concat(nombre, repeat('0', 3), year(now())) as codigo
+from empleado;
+
+-- revertica cadena de texto
+select reverse(nombre) as inverso from producto;
+
+-- extraer 
+select substring(nombre, 9, 3) as subcadena
+from producto
+where idProducto = 11;
 
 
 -------------------------------------------------------------------
 --formato de cadenas de caracteres 
 
+-- para usar un buscador de datos no debe tener espacios ni al final ni al inicio de una variable
+select ltrim('     Texto con espacios');-- quita al principio
 
+select rtrim('Texto con espacio       ');-- quita al final
+
+select trim('   Texto con espaicos     ');-- quita espacios
+
+-- retorna todos los valores de nombre en minusculas
+select lower(nombre)
+from producto;
+
+-- todos los datos maysculas
+select upper(nombre)
+from producto;
 
 
 -------------------------------------------------------------------
 -- conversion de tipos de tados
 
+-- conversion de datos
+-- convertir fecha a datetime
+select nombre, cast(fechaIngreso as datetime)
+from empleado;
 
+-- de datetime a date
+select cast(now() as date);
+
+-- int a char
+select nommbre, cast(salario as char) as texto
+from empleado;
+
+-- string a date
+select convert('20181201', date) as date;
 
 
 -------------------------------------------------------------------
 -- funciones en encriptacion
 
+-- incriptacion
+-- aes_encriiypt(string a cifrar, llave)
+select aes_encrypt('micontraseña','key');
 
+-- desencriptar
+select aes_decrypt(aes_encrypt('micontraseña', 'key'), 'key');
+
+select md5('micontraseña'); -- retorna encriptacion de 32 digitos hexadecimal
+
+select sha('micontraseña');-- retorna encriptacion de 40 digitos hexadecimal
+
+select sha2('miconstraseña','224');-- longitud  de bits (224 256 384 512 0)
 
 
 -------------------------------------------------------------------
 -- funciones de informacion
 
+elect database(); -- retorn base de dato
 
+select user();-- retorna usuario
+
+select version();-- retorn version workbech
+
+select * from cliente;
+select found_rows(); -- filas afectas/cambiadas
+
+insert into producto(nombre, idCategoria, precioUnitario)
+values('Arroz','2','4');-- valor, 'categoria','precio';
+select last_insert_id(); -- iltimo valor agregado
+
+insert into producto(nombre, idCategoria, precioUnitario)
+values('Ciruela','6','2');
+select row_count(); -- retorna el ultimo elemento modificado
 
 
 
