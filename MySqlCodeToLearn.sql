@@ -448,34 +448,111 @@ select row_count(); -- retorna el ultimo elemento modificado
 -------------------------------------------------------------------
 -- suma y conteo de valores
 
+select sum(cantidad) as total 
+from detalle_factura
+where idProducto = 2; -- usar si me quiero limitar
 
+-- cuenta todos los productos
+select count(*) as productos
+from productos
+where idCategoria = 2;-- sumar la categoria tipo 2
+
+-- conteo distinto de IdCategoria
+select count(distinct IdCategoria)
+from producto;
 
 -------------------------------------------------------------------
 -- promedio, maximos y minimos
 
+-- promedio
+select avg(precioUnitario)
+from producto;
 
+-- valor minimo de precioUnitario
+select min(precioUnitario)
+from producto;
+
+-- valor maximo
+select max(precioUnitario)
+from producto;
+
+-- el valor mas pequeño de una lista de valores
+select least(3,5,7,9,11) as resultado;
 
 -------------------------------------------------------------------
 -- agrupando datos con la clausula Group GROUP by
 
+-- retona valores unicos
+select pais from cliente
+group by pais;
 
+select idFactura, sum(presioUnitario * cantidad) as total
+from detalle_factura
+group by idFactura; -- total de facturas con respectivos totales
+
+
+select idCliente, count(idFactura) as facturas
+from factura
+group by idCliente;-- total de facturas por cada cliente
 
 
 -------------------------------------------------------------------
 --opciones para el agrupamineto
 
+-- sacar todas las facturas de cada unos de los clientes
+-- with rollup retorn en la ultima fila el total
+select idCliente, count(idfactura) as facturas
+from factura
+group by idCliente with rollup;
 
+
+-- para que la celda no deiga null, so no total
+select idCliente,
+-- si se cumple grouping(idCliente), 'poner total', variable asignada 
+if(grouping(idCliente), 'Total', idCliente) as cliente,
+count(idfactura) as facturas
+from factura
+group by idCliente with rollup;
+
+-- cuenta y agrupa los elementos de idProducto
+select idCategoria, group_concat(idProducto) as producto
+from producto
+group by idCategoria;
+
+-- facturas mayor a 14 dolares
+select idFactura, sum(precioUnitario * cantidad) as total 
+from detalle_factura
+group by idfactura
+having total > 14
 
 
 -------------------------------------------------------------------
 -- ordenamiento de datos por medio de ORDER BY
 
-
+-- ordenamiento de datos
+-- ASC asendente, DESC desendente
+select nombre, apellido
+from cliente
+order by apellido desc;
+-- order by rand() ordena de froma aleatoria
 
 -------------------------------------------------------------------
 -- limitar el número de filas con LIMIT y OFFSET
 
+select * from empleado
+order by fechaIngreso
+limit 2;
 
+select *
+from producto
+order by idProducto
+limit 3, 4;
+
+-- offset: contar a partir de n
+select *
+from producto
+order by idProducto
+limit 4 offset 3;
 
 
 -------------------------------------------------------------------
