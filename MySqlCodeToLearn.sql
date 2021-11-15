@@ -680,7 +680,7 @@ left join factura on factura.idCliente = cliente.idCliente
 -------------------------------------------------------------------
 -- respaldos utilizando mysqldump
 
-
+mysqldump -uroot -p tienda > C:\Users\Usuario\Documents\respaldos\tienda.sql
 
 
 -------------------------------------------------------------------
