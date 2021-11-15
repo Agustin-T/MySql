@@ -560,27 +560,120 @@ limit 4 offset 3;
 -------------------------------------------------------------------
 -- union de tablas
 
+-- une la fila de una tabla con una fila de otra
+select
+categoria.nombre as categoria,
+producto.nombre as producto
+from producto
+inner join categoria on categoria.idCategoria = producto.idCategoria;
+
+-- cliente - empleado unir tablaas
+select
+factura.idFactura as factura,
+cliente.nombre as cliente,
+empleado.nombre as empleado
+from factura
+inner join cliente on cliente.idCliente = factura.idCliente
+inner join empleado on empleado.idEmpleado = factura.idEmpleado
+order by factura.idFactura;
+
+select * 
+from cliente
+cross join facturas;-- cross join: multiplica todas las filas de una tabla por todas las filas de otra tablas
+
 -------------------------------------------------------------------
 -- vinculo de tablas por medio de LEFT JOIN
 
+-- left join
 
+select
+cliente.nombre as cliente,
+factura.idfactura as factura
+from cliente
+lelf join factura on cliente.idCliente = factura.idCliente
+where factura.idFactura is null
+order by cliente.nombre;
+
+-- id de factura y id del producto
+select
+factura.idfactura as factura,
+idProducto as producto
+from factura
+left join detalle_factura on factura.idFactura = detalle_factura.idFactura
+and factura.idFactura = 1;
+
+-- id de factura, el nombre del cliente y el id del producto
+select
+factura.idFactura as factura,
+cliente.nombre as cliente,
+idProducto as producto
+from cliente
+left join factura on factura.idCliente = cliente.idCliente
+left join detalle_factura on detalle_factura.idFactura = factura.idFactura
+order by ciente.nombre, factura ASC;
 -------------------------------------------------------------------
 --unio de tablas con la sentencia RIGHT JOIN 
 
+-- commbinar talableas (siempre se van a devolver los valores de la segunda tabla(RIGHT))
+-- nombre del cliente con la factura correspondiente
+select
+cliente.nombre as cliente,
+factura.idFactura
+from cliente
+right join factura on factura.idCliente = cliente.idCliente
+order by factura.idFactura;
 
+
+-- factura con empleado
+select
+factura.idFactura as factura,
+empleado.nombre as empleado
+from factura
+right join empleado on factura.idEmpleado = empleado.idEmpleado
+order by factura.idFactura;
+
+-- factura. nombre de producto y cuanto a vendido
+select
+detalle_factura.idFactura as factura,
+producto.nombre as producto,
+detalle_factura.cantidad as cantidad
+from detalle_factura
+right join producto on detalle_factura.idProducto = producto.idproducto
+order by factura;
 
 -------------------------------------------------------------------
 --relacion de tablas con el mismo nombre de columnas
 
+-- factura con detalle de factura
+select *
+from factura
+natural join detalle_factura;
 
+select * 
+from factura
+natural join cliente
+order by cliente.idCliente;
 
 -------------------------------------------------------------------
 -- opciones de ON y USING en la union de tablas
 
+-- Using 
+select 
+cliente.idCliente as id,
+cliente.nombre as nombre,
+factura.idfactura as factura
+from cliente
+left join factura using(idCliente)
+where idCliente = 1;
 
-
-
-
+-- on
+select 
+cliente.idCliente as id,
+cliente.nombre as nombre,
+factura.idfactura as factura
+from cliente
+-- retorna todos los valores iguales (factura.idcliente == cleinte.idCliente)
+left join factura on factura.idCliente = cliente.idCliente
 
 -------------------------------------------------------------------
 -- importar y exportar bases de datos
